@@ -1,12 +1,11 @@
 # API Cadastro de Clientes e Veiculos
 
-Esse projeto é uma API construída usando **Java 17, Spring Boot, Hibernate, MySQL.**
+Esse projeto é uma API construída usando **Java 17, Spring Boot, Hibernate e MySQL.**
 
 ## Índice
 
 - [Configurações](#confi)
 - [Endpoints](#endpoints)
-- [Contato](#contato)
 
 ## Configurações
 
@@ -28,7 +27,3 @@ Esse projeto é uma API construída usando **Java 17, Spring Boot, Hibernate, My
 - `GET /veiculos`: Recupera todos os veiculos cadastrados.
 - `GET /veiculos/id`: Recupera um veiculo correspondente ao id.
 
-
-## Contato
-
-Para dúvidas e sugestões, entre em contato [LinkedIn](https://www.linkedin.com/in/raquelambrozio/).
