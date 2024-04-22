@@ -2,12 +2,7 @@
 
 Esse projeto é uma API construída usando **Java 17, Spring Boot, Hibernate e MySQL.**
 
-## Índice
-
-- [Configurações](#confi)
-- [Endpoints](#endpoints)
-
-## Configurações
+## Instruções Para Execução do Projeto
 
 1. Clone o respositório: `git clone https://github.com/RaquelAmbroziof/api-clientes-e-veiculos.git`
 2. Navegue até o diretório do projeto: `cd api-clientes-e-veiculos`
