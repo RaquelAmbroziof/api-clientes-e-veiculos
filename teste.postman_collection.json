@@ -1,0 +1,299 @@
+{
+	"info": {
+		"_postman_id": "1a4a4306-9a04-456a-9024-b3826f54a3fa",
+		"name": "teste",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12401584"
+	},
+	"item": [
+		{
+			"name": "POST /usuarios/cadastrar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"nome\": \"Usuario Administrador\",\r\n        \"cnpj\": \"75.818.523/0001-49\",\r\n        \"endereco\": \"Brasil\",\r\n        \"senha\":\"1234\",\r\n        \"perfil\":\"ROLE_ADMINISTRADOR\"\r\n   }\r\n\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/usuarios/cadastrar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						"cadastrar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /usuarios/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"cnpj\": \"75.818.523/0001-49\",\r\n        \"senha\":\"1234\"\r\n   }\r\n\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/usuarios/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /usuarios",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcGktY2xpZW50ZXMtZS12ZWljdWxvcyIsInN1YiI6Ijc1LjgxOC41MjMvMDAwMS00OSIsImV4cCI6MTcxNDAwMTk2OX0.XZrJZtD-uR8MF4iWBCHa4CFSfb1C0bOxGHsj3mHSUWE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"nome\": \"Cliente teste auth\",\r\n        \"cnpj\": \"111\",\r\n        \"endereco\": \"rua 1\",\r\n        \"senha\":\"12345\",\r\n        \"perfil\":\"ROLE_CLIENTE\"\r\n   }\r\n\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /usuarios/{id}",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcGktY2xpZW50ZXMtZS12ZWljdWxvcyIsInN1YiI6Ijc1LjgxOC41MjMvMDAwMS00OSIsImV4cCI6MTcxNDAwMTk2OX0.XZrJZtD-uR8MF4iWBCHa4CFSfb1C0bOxGHsj3mHSUWE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"nome\": \"Cliente teste auth\",\r\n        \"cnpj\": \"111\",\r\n        \"endereco\": \"rua 1\",\r\n        \"senha\":\"12345\",\r\n        \"perfil\":\"ROLE_CLIENTE\"\r\n   }\r\n\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/usuarios/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /usuarios/{id}",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcGktY2xpZW50ZXMtZS12ZWljdWxvcyIsInN1YiI6Ijc1LjgxOC41MjMvMDAwMS00OSIsImV4cCI6MTcxNDAwMTk2OX0.XZrJZtD-uR8MF4iWBCHa4CFSfb1C0bOxGHsj3mHSUWE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n\r\n        \"endereco\": \"China\"\r\n \r\n   }\r\n\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/usuarios/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /usuarios/{id}",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcGktY2xpZW50ZXMtZS12ZWljdWxvcyIsInN1YiI6IjMxLjE4My4yNTgvMDAwMS0wMiIsImV4cCI6MTcxNDAwMzE2M30.7zKdmw3LQgY5asXkUWyNIOsO7URlEq_D6qsdz7jpPcc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"nome\": \"Cliente teste auth\",\r\n        \"cnpj\": \"111\",\r\n        \"endereco\": \"rua 1\",\r\n        \"senha\":\"12345\",\r\n        \"perfil\":\"ROLE_CLIENTE\"\r\n   }\r\n\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/usuarios/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /veiculos/cliente/{id}",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcGktY2xpZW50ZXMtZS12ZWljdWxvcyIsInN1YiI6Ijc1LjgxOC41MjMvMDAwMS00OSIsImV4cCI6MTcxNDAwMTk2OX0.XZrJZtD-uR8MF4iWBCHa4CFSfb1C0bOxGHsj3mHSUWE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"placa\":\"MNN-7676\",\r\n    \"modelo\":\"XF 3.0 S V6 380cv Aut.\",\r\n    \"serialRastreador\":\"wTW17YMht2\"\r\n    }\r\n\r\n\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/veiculos/cliente/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"veiculos",
+						"cliente",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /veiculos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"nome\": \"Cliente teste auth\",\r\n        \"cnpj\": \"111\",\r\n        \"endereco\": \"rua 1\",\r\n        \"senha\":\"12345\",\r\n        \"perfil\":\"ROLE_CLIENTE\"\r\n   }\r\n\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080//usuarios/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"",
+						"usuarios",
+						"register"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
