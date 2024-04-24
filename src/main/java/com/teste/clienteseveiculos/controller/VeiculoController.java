@@ -20,16 +20,15 @@ import com.teste.clienteseveiculos.service.VeiculoService;
 @RestController
 @RequestMapping("/veiculos")
 public class VeiculoController {
-	
+
 	@Autowired
 	VeiculoService service;
 
 	@PostMapping("/cliente/{id}")
-	public ResponseEntity<VeiculoEntity> save(@PathVariable Long id,
-			@Validated @RequestBody VeiculoEntity veiculo) {
+	public ResponseEntity<VeiculoEntity> save(@PathVariable Long id, @Validated @RequestBody VeiculoEntity veiculo) {
 		return new ResponseEntity<VeiculoEntity>(service.save(id, veiculo), HttpStatus.CREATED);
 	}
-	
+
 	@GetMapping
 	public ResponseEntity<List<VeiculoEntity>> findAll() {
 		return new ResponseEntity<List<VeiculoEntity>>(service.findAll(), HttpStatus.OK);

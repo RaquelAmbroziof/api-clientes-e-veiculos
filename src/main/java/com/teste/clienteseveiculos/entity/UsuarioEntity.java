@@ -8,6 +8,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -58,6 +60,7 @@ public class UsuarioEntity implements Serializable, UserDetails {
 	@OneToMany(mappedBy = "proprietario", cascade = CascadeType.ALL)
 	private Set<VeiculoEntity> veiculos;
 
+	@JsonIgnore
 	private String senha;
 
 	@Enumerated(EnumType.STRING)
@@ -71,31 +74,37 @@ public class UsuarioEntity implements Serializable, UserDetails {
 			return List.of(new SimpleGrantedAuthority("ROLE_USER"));
 	}
 
+	@JsonIgnore
 	@Override
 	public String getPassword() {
 		return senha;
 	}
 
+	@JsonIgnore
 	@Override
 	public String getUsername() {
 		return cnpj;
 	}
 
+	@JsonIgnore
 	@Override
 	public boolean isAccountNonExpired() {
 		return true;
 	}
 
+	@JsonIgnore
 	@Override
 	public boolean isAccountNonLocked() {
 		return true;
 	}
 
+	@JsonIgnore
 	@Override
 	public boolean isCredentialsNonExpired() {
 		return true;
 	}
 
+	@JsonIgnore
 	@Override
 	public boolean isEnabled() {
 		return true;

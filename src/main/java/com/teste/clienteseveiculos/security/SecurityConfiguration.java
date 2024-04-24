@@ -18,35 +18,39 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 public class SecurityConfiguration {
 
-    @Autowired
-    SecurityFilter securityFilter;
+	@Autowired
+	SecurityFilter securityFilter;
 
-    @Bean 
-    public SecurityFilterChain securityFilterChain (HttpSecurity httpSecurity) throws Exception{
-        return httpSecurity
-            .csrf(csrf -> csrf.disable())
-            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-            .authorizeHttpRequests(authorize -> authorize
-                .requestMatchers(HttpMethod.POST,"/usuarios/login").permitAll()
-                    .requestMatchers(HttpMethod.POST, "/usuarios/cadastrar").permitAll()
-                    .requestMatchers(HttpMethod.GET, "/usuarios").hasRole("ADMIN")
-                    .anyRequest().permitAll()
-                    
-                                        
-                )
-        .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
-        .build();
-    }
+	@Bean
+	public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
+		return httpSecurity.csrf(csrf -> csrf.disable())
+				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+				.authorizeHttpRequests(
+						authorize -> authorize
+						.requestMatchers(HttpMethod.POST, "/usuarios/cadastrar").permitAll()
+						.requestMatchers(HttpMethod.POST, "/usuarios/login").permitAll()
+						.requestMatchers(HttpMethod.GET, "/usuarios").hasRole("ADMIN")
+						.requestMatchers(HttpMethod.GET, "/usuarios/{id}").hasRole("ADMIN")
+						.requestMatchers(HttpMethod.PUT, "/usuarios/{id}").hasRole("ADMIN")
+						.requestMatchers(HttpMethod.DELETE, "/usuarios/{id}").hasRole("ADMIN")
+						.requestMatchers(HttpMethod.POST, "/veiculos/cliente/{id}").hasRole("ADMIN")
+						.requestMatchers(HttpMethod.GET, "/veiculos").hasRole("ADMIN")
+						.requestMatchers(HttpMethod.GET, "/veiculos/{id}").hasRole("ADMIN")
 
+						.anyRequest().permitAll()
 
-    @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
-        return authenticationConfiguration.getAuthenticationManager();
-    }
+				).addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class).build();
+	}
 
-    @Bean 
-    public PasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();
-    }
+	@Bean
+	public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)
+			throws Exception {
+		return authenticationConfiguration.getAuthenticationManager();
+	}
+
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
 
 }
