@@ -14,30 +14,27 @@ import com.teste.clienteseveiculos.repository.VeiculoRepository;
 
 @Service
 public class VeiculoService {
-	
+
 	@Autowired
 	VeiculoRepository repository;
-	
+
 	@Autowired
 	UsuarioRepository usuarioRepository;
-	
+
 	public VeiculoEntity save(Long idUsuario, VeiculoEntity veiculo) {
 		Optional<UsuarioEntity> clienteOpt = usuarioRepository.findById(idUsuario);
 		UsuarioEntity proprietarioVeiculo = clienteOpt.get();
-
 		veiculo.setProprietario(proprietarioVeiculo);
 		VeiculoEntity veiculoAdd = repository.save(veiculo);
-
 		proprietarioVeiculo.getVeiculos().add(veiculoAdd);
 		usuarioRepository.save(proprietarioVeiculo);
-
 		return repository.save(veiculo);
 	}
-	
-	public List<VeiculoEntity> findAll() throws RegistroNotFoundException{
+
+	public List<VeiculoEntity> findAll() throws RegistroNotFoundException {
 		return repository.findAll();
 	}
-	
+
 	public VeiculoEntity findById(Long id) {
 		Optional<VeiculoEntity> veiculo = repository.findById(id);
 		if (!veiculo.isPresent()) {

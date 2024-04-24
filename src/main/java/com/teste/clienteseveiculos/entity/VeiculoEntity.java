@@ -24,24 +24,25 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "VEICULO")
-public class VeiculoEntity implements Serializable {/**
-	 * 
-	 */
+public class VeiculoEntity implements Serializable {
+	/**
+	* 
+	*/
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@NotBlank(message="Placa é obrigatório!")
+	@NotBlank(message = "Placa é obrigatório!")
 	@Column(nullable = false, unique = true)
 	private String placa;
 
-	@NotBlank(message="Modelo é obrigatório!")
+	@NotBlank(message = "Modelo é obrigatório!")
 	@Column(nullable = false)
 	private String modelo;
 
-	@NotBlank(message="Serial rastreador é obrigatório!")
+	@NotBlank(message = "Serial rastreador é obrigatório!")
 	@Column(nullable = false, unique = true)
 	private String serialRastreador;
 

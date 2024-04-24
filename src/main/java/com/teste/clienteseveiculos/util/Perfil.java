@@ -1,4 +1,4 @@
-package com.teste.clienteseveiculos.entity;
+package com.teste.clienteseveiculos.util;
 
 public enum Perfil {
 	ROLE_ADMINISTRADOR("administrador"), ROLE_CLIENTE("cliente");

@@ -43,13 +43,12 @@ public class UsuarioController {
 
 	@PostMapping("/cadastrar")
 	public ResponseEntity<Object> save(@Validated @RequestBody CadastroUsuarioDto usuario) {
-		
 		return usuarioService.save(usuario);
 	}
 
 	@PostMapping("/login")
-	public ResponseEntity<Object> login(@RequestBody @Valid LoginDto authetinticationDto) {
-		return usuarioService.login(authetinticationDto);
+	public ResponseEntity<Object> login(@RequestBody @Valid LoginDto login) {
+		return usuarioService.login(login);
 	}
 
 	@GetMapping
@@ -63,8 +62,8 @@ public class UsuarioController {
 	}
 
 	@PutMapping("/{id}")
-	public ResponseEntity<UsuarioEntity> update(@PathVariable Long id, @Valid @RequestBody UsuarioUpdateDto cliente) {
-		return new ResponseEntity<UsuarioEntity>(usuarioService.update(id, cliente), HttpStatus.OK);
+	public ResponseEntity<UsuarioEntity> update(@PathVariable Long id, @Valid @RequestBody UsuarioUpdateDto usuario) {
+		return new ResponseEntity<UsuarioEntity>(usuarioService.update(id, usuario), HttpStatus.OK);
 	}
 
 	@DeleteMapping("/{id}")

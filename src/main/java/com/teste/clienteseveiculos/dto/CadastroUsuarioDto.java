@@ -1,11 +1,7 @@
 package com.teste.clienteseveiculos.dto;
 
-import com.teste.clienteseveiculos.entity.Perfil;
+import com.teste.clienteseveiculos.util.Perfil;
 
-public record CadastroUsuarioDto(
-
-		String nome, String cnpj, String endereco, Perfil perfil, String senha
-
-) {
+public record CadastroUsuarioDto(String nome, String cnpj, String endereco, Perfil perfil, String senha) {
 
 }

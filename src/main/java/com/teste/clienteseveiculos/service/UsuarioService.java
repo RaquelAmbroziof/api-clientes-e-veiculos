@@ -40,14 +40,11 @@ public class UsuarioService implements UserDetailsService {
 	private TokenService tokenService;
 
 	public ResponseEntity<Object> save(CadastroUsuarioDto usuario) {
-
 		if (repository.findByCnpj(usuario.cnpj()) != null)
 			return ResponseEntity.badRequest().build();
 		String encryptedPassword = new BCryptPasswordEncoder().encode(usuario.senha());
-
 		UsuarioEntity novoCli = UsuarioEntity.builder().nome(usuario.nome()).cnpj(usuario.cnpj())
 				.endereco(usuario.endereco()).senha(encryptedPassword).perfil(usuario.perfil()).build();
-
 		UsuarioEntity novo = repository.save(novoCli);
 		return ResponseEntity.ok().body(novo);
 
@@ -67,7 +64,6 @@ public class UsuarioService implements UserDetailsService {
 
 	public UsuarioEntity update(Long id, UsuarioUpdateDto update) {
 		UsuarioEntity usu = findById(id);
-
 		if (update.nome() != null && !update.nome().isEmpty()) {
 			usu.setNome(update.nome());
 		}
@@ -77,12 +73,9 @@ public class UsuarioService implements UserDetailsService {
 		if (update.perfil() != null) {
 			usu.setPerfil(update.perfil());
 		}
-
 		if (update.senha() != null && !update.senha().isEmpty()) {
 			usu.setSenha(update.senha());
-
 		}
-
 		return repository.save(usu);
 	}
 
@@ -94,7 +87,6 @@ public class UsuarioService implements UserDetailsService {
 	}
 
 	public ResponseEntity<Object> login(@RequestBody @Valid LoginDto data) {
-
 		var usernamePassword = new UsernamePasswordAuthenticationToken(data.cnpj(), data.senha());
 		var auth = this.authenticationManager.authenticate(usernamePassword);
 		var token = tokenService.generateToken((UsuarioEntity) auth.getPrincipal());

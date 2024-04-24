@@ -25,20 +25,13 @@ public class SecurityConfiguration {
 	public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
 		return httpSecurity.csrf(csrf -> csrf.disable())
 				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-				.authorizeHttpRequests(
-						authorize -> authorize
-						.requestMatchers(HttpMethod.POST, "/usuarios/cadastrar").permitAll()
-						.requestMatchers(HttpMethod.POST, "/usuarios/login").permitAll()
-						.requestMatchers(HttpMethod.GET, "/usuarios").hasRole("ADMIN")
-						.requestMatchers(HttpMethod.GET, "/usuarios/{id}").hasRole("ADMIN")
+				.authorizeHttpRequests(authorize -> 
+				authorize.requestMatchers(HttpMethod.POST, "/usuarios/cadastrar")
+						.permitAll().requestMatchers(HttpMethod.POST, "/usuarios/login").permitAll()
 						.requestMatchers(HttpMethod.PUT, "/usuarios/{id}").hasRole("ADMIN")
 						.requestMatchers(HttpMethod.DELETE, "/usuarios/{id}").hasRole("ADMIN")
-						.requestMatchers(HttpMethod.POST, "/veiculos/cliente/{id}").hasRole("ADMIN")
-						.requestMatchers(HttpMethod.GET, "/veiculos").hasRole("ADMIN")
-						.requestMatchers(HttpMethod.GET, "/veiculos/{id}").hasRole("ADMIN")
-
-						.anyRequest().permitAll()
-
+						.requestMatchers(HttpMethod.POST, "/veiculos/cliente/{id}").hasRole("ADMIN").anyRequest()
+						.permitAll()
 				).addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class).build();
 	}
 

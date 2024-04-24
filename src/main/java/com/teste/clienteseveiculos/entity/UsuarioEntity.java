@@ -1,4 +1,5 @@
 package com.teste.clienteseveiculos.entity;
+
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
@@ -9,6 +10,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.teste.clienteseveiculos.util.Perfil;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
