@@ -10,6 +10,8 @@ Esse projeto é uma API construída usando **Java 17, Spring Boot, Hibernate e M
 4. Inicie o aplicativo: botão direito no projeto > Run As > Spring Boot App.
 5. A API estará acessível em http://localhost:8080
 
+Se preferir collection no Postman com todas as requisições necessárias para você poder testar os endpoints que você irá criar. Basta fazer o download e importar no seu postman:
+
 ## Endpoints
 
 - `POST /usuarios/cadastrar`: Registra um novo usuario.
@@ -23,4 +25,9 @@ Esse projeto é uma API construída usando **Java 17, Spring Boot, Hibernate e M
 - `POST /veiculos/cliente/id`: Registra um novo veiculo e relaciona ao cliente do id correspondente. **(Acesso de ADMIN necessário)**.
 - `GET /veiculos`: Recupera todos os veiculos cadastrados.
 - `GET /veiculos/id`: Recupera um veiculo correspondente ao id.
+
+ 
+Na raiz do repositório está disponível uma collection criada no Postman com todas as requisições necessárias para testar os endpoints. Basta fazer o download e importar no seu postman: https://github.com/RaquelAmbroziof/api-clientes-e-veiculos/blob/main/teste.postman_collection.json
+
+  
 
