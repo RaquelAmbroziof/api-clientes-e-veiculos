@@ -12,13 +12,15 @@ Esse projeto é uma API construída usando **Java 17, Spring Boot, Hibernate e M
 
 ## Endpoints
 
-- `POST /usuarios`: Registra um novo usuario.
+- `POST /usuarios/cadastrar`: Registra um novo usuario.
+- `POST /usuarios/login`: Realiza autenticação de um usuario. 
+- `POST /usuarios`: Registra um novo usuario. (Acesso de ADMIN necessário).
 - `GET /usuarios`: Recupera todos os usuários cadastrados.
 - `GET /usuarios/id`: Recupera um usuário correspondente ao id.
-- `PUT /usuarios/id`: Atualiza um usuário correspondente ao id.
-- `DELETE /usuarios/id`: Deleta um usuário correspondente ao id.
+- `PUT /usuarios/id`: Atualiza um usuário correspondente ao id. (Acesso de ADMIN necessário).
+- `DELETE /usuarios/id`: Deleta um usuário correspondente ao id. (Acesso de ADMIN necessário).
 
-- `POST /veiculos/cliente/id`: Registra um novo veiculo e relaciona ao cliente do id correspondente.
+- `POST /veiculos/cliente/id`: Registra um novo veiculo e relaciona ao cliente do id correspondente. (Acesso de ADMIN necessário).
 - `GET /veiculos`: Recupera todos os veiculos cadastrados.
 - `GET /veiculos/id`: Recupera um veiculo correspondente ao id.
 
